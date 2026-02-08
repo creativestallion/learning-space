@@ -1,13 +1,15 @@
 package MainClass;
 
 
+import Systemdesign.Factory.Shape;
+import Systemdesign.Factory.ShapeFactory;
 import Systemdesign.Singleton.EagerSingletonClass;
 import Systemdesign.Stratergy.Calculator;
 import Systemdesign.Stratergy.StrategyContext;
 
 import java.util.Scanner;
 
-public class Main {
+public class Client {
 
     static void main(String[] args) {
         EagerSingletonClass eagerInstance1 = EagerSingletonClass.getInstance();
@@ -32,5 +34,11 @@ public class Main {
         int operation = sc.nextInt();
         int res = calculator.calculate(num1, num2, operation);
         System.out.println("Result -> " + res);
+
+        Shape s1 = ShapeFactory.createShape("CIRCLE");
+        Shape s2 = ShapeFactory.createShape("SQUARE");
+
+        s1.draw();
+        s2.draw();
     }
 }
