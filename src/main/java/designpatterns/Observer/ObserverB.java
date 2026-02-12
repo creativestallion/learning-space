@@ -1,4 +1,4 @@
-package systemdesign.Observer;
+package designpatterns.Observer;
 
 public class ObserverB implements ObserverInterface {
 

@@ -1,4 +1,4 @@
-package systemdesign.Stratergy;
+package designpatterns.Stratergy;
 
 public interface Strategy {
     Integer calculate(final Integer a, final Integer b);

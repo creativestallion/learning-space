@@ -1,4 +1,4 @@
-package systemdesign.Stratergy;
+package designpatterns.Stratergy;
 
 public class MultiplyStrategy implements Strategy{
 

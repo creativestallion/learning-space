@@ -1,0 +1,61 @@
+package client;
+
+
+import designpatterns.Factory.Shape;
+import designpatterns.Factory.ShapeFactory;
+import designpatterns.Observer.ObserverA;
+import designpatterns.Observer.ObserverB;
+import designpatterns.Observer.SubjectConcrete;
+import designpatterns.Observer.SubjectInterface;
+import designpatterns.Singleton.EagerSingletonClass;
+import designpatterns.Stratergy.Calculator;
+import designpatterns.Stratergy.StrategyContext;
+import designpatterns.factoryandstrategy.PaymentStrategy;
+import designpatterns.factoryandstrategy.PaymentStrategyContext;
+import designpatterns.factoryandstrategy.PaymentStrategyFactory;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class Client {
+
+    static void main(String[] args) {
+//        EagerSingletonClass eagerInstance1 = EagerSingletonClass.getInstance();
+//        EagerSingletonClass eagerInstance2 = EagerSingletonClass.getInstance();
+//        System.out.println("Comparing eager instances -> " + eagerInstance2.equals(eagerInstance1));
+//
+//        Calculator calculator = new Calculator(new StrategyContext());
+//        Scanner sc = new Scanner(System.in);
+//
+//        System.out.println("Enter first num ");
+//        Integer num1 = sc.nextInt();
+//
+//        System.out.println("Enter second num ");
+//        Integer num2 = sc.nextInt();
+//
+//        System.out.println("""
+//                Select operation
+//                1 -> add
+//                2 -> subtract
+//                3 -> multiply
+//                """);
+//        int operation = sc.nextInt();
+//        int res = calculator.calculate(num1, num2, operation);
+//        System.out.println("Result -> " + res);
+//
+//        Shape s1 = ShapeFactory.createShape("CIRCLE");
+//        Shape s2 = ShapeFactory.createShape("SQUARE");
+//
+//        s1.draw();
+//        s2.draw();
+//
+//        ObserverA observerA = new ObserverA();
+//        ObserverA observerA1 = new ObserverA();
+//        ObserverB observerB = new ObserverB();
+//        SubjectInterface subjectConcrete = new SubjectConcrete(List.of(observerA, observerA1, observerB));
+//        subjectConcrete.notifyObservers("Yo, Hey Mr. White!!");
+        PaymentStrategy paymentStrategy = PaymentStrategyFactory.decidePaymentStrategy("upi");
+        PaymentStrategyContext strategyContext = new PaymentStrategyContext(paymentStrategy);
+        strategyContext.execute(100);
+    }
+}

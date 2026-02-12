@@ -1,4 +1,4 @@
-package systemdesign.Singleton;
+package designpatterns.Singleton;
 
 public class EagerSingletonClass {
 

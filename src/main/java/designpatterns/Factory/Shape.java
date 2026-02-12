@@ -1,4 +1,4 @@
-package systemdesign.Factory;
+package designpatterns.Factory;
 
 public interface Shape {
     void draw();
