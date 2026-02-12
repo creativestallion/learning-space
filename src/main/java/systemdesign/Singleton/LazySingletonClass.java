@@ -1,4 +1,4 @@
-package Systemdesign.Singleton;
+package systemdesign.Singleton;
 
 public class LazySingletonClass {
     private LazySingletonClass() {

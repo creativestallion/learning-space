@@ -1,4 +1,4 @@
-package Systemdesign.Stratergy;
+package systemdesign.Stratergy;
 
 public class SubtractStrategy implements Strategy{
 

@@ -1,15 +1,15 @@
 package MainClass;
 
 
-import Systemdesign.Factory.Shape;
-import Systemdesign.Factory.ShapeFactory;
-import Systemdesign.Observer.ObserverA;
-import Systemdesign.Observer.ObserverB;
-import Systemdesign.Observer.SubjectConcrete;
-import Systemdesign.Observer.SubjectI;
-import Systemdesign.Singleton.EagerSingletonClass;
-import Systemdesign.Stratergy.Calculator;
-import Systemdesign.Stratergy.StrategyContext;
+import systemdesign.Factory.Shape;
+import systemdesign.Factory.ShapeFactory;
+import systemdesign.Observer.ObserverA;
+import systemdesign.Observer.ObserverB;
+import systemdesign.Observer.SubjectConcrete;
+import systemdesign.Observer.SubjectInterface;
+import systemdesign.Singleton.EagerSingletonClass;
+import systemdesign.Stratergy.Calculator;
+import systemdesign.Stratergy.StrategyContext;
 
 import java.util.List;
 import java.util.Scanner;
@@ -49,7 +49,7 @@ public class Client {
         ObserverA observerA = new ObserverA();
         ObserverA observerA1 = new ObserverA();
         ObserverB observerB = new ObserverB();
-        SubjectI subjectConcrete = new SubjectConcrete(List.of(observerA, observerA1, observerB));
+        SubjectInterface subjectConcrete = new SubjectConcrete(List.of(observerA, observerA1, observerB));
         subjectConcrete.notifyObservers("Yo, Hey Mr. White!!");
     }
 }

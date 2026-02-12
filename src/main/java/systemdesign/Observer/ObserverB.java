@@ -1,6 +1,6 @@
-package Systemdesign.Observer;
+package systemdesign.Observer;
 
-public class ObserverB implements ObserverI{
+public class ObserverB implements ObserverInterface {
 
     @Override
     public void update(String object) {

@@ -1,14 +1,14 @@
-package Systemdesign.Observer;
+package systemdesign.Observer;
 
 import java.util.List;
 
-public class SubjectConcrete implements SubjectI {
+public class SubjectConcrete implements SubjectInterface {
 
     private String msg;
 
-    private final List<ObserverI> observers;
+    private final List<ObserverInterface> observers;
 
-    public SubjectConcrete(List<ObserverI> observers) {
+    public SubjectConcrete(List<ObserverInterface> observers) {
         this.observers = observers;
     }
 
@@ -18,12 +18,12 @@ public class SubjectConcrete implements SubjectI {
     }
 
     @Override
-    public void addObserver(ObserverI object) {
+    public void addObserver(ObserverInterface object) {
         observers.add(object);
     }
 
     @Override
-    public void removeObserver(ObserverI object) {
+    public void removeObserver(ObserverInterface object) {
         try {
             observers.remove(object);
         } catch (Exception e){
@@ -33,7 +33,7 @@ public class SubjectConcrete implements SubjectI {
 
     @Override
     public void notifyObservers(String str) {
-        for(ObserverI object : observers){
+        for(ObserverInterface object : observers){
             object.update(str);
         }
     }

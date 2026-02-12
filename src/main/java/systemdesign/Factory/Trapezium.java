@@ -1,4 +1,4 @@
-package Systemdesign.Factory;
+package systemdesign.Factory;
 
 public class Trapezium implements Shape {
     @Override
