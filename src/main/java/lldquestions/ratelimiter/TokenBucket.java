@@ -13,8 +13,12 @@ public class TokenBucket {
     public TokenBucket(long capacity, long refillRatePerSecond) {
         this.capacity = capacity;
         this.refillRatePerSecond = refillRatePerSecond;
-        this.tokens = tokens;
-        this.lastRefillTimestamp = lastRefillTimestamp;
+
+        // initialize tokens to full capacity
+        this.tokens = capacity;
+
+        // set last refill time to now
+        this.lastRefillTimestamp = System.nanoTime();
     }
 
     private final ReentrantLock lock = new ReentrantLock();
@@ -22,6 +26,7 @@ public class TokenBucket {
     public boolean tryConsume() {
         lock.lock();
         try{
+            refill();
             if (tokens >= 1) {
                 tokens -= 1;
                 return true;
