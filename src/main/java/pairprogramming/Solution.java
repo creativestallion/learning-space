@@ -7,7 +7,7 @@ import java.util.*;
 
 public final class Solution {
 
-    private final int bufferTime = 15;
+    private final int bufferTime = 5;
 
     /**
      * Takes a set of deliveries and split them into batches such that each batch, when packed into
@@ -116,7 +116,7 @@ public final class Solution {
         final Set<Delivery> temp = new HashSet<>();
 
         final List<Delivery> list = deliveries.stream()
-                .filter(Objects::nonNull)
+                .filter(e -> e.id()!=null)
                 .sorted((a,b) -> a.startTime()-b.startTime())
                 .toList();
 
@@ -126,13 +126,11 @@ public final class Solution {
         for (int i = 1; i < list.size(); i++) {
             lastDel = list.get(i-1).endTime() > lastDel.endTime() ? list.get(i-1) : lastDel;
             final boolean flag = canShare(lastDel, list.get(i));
-            if (flag) {
-                temp.add(list.get(i));
-            } else {
+            if (!flag) {
                 ans.add(new HashSet<>(temp));
                 temp.clear();
-                temp.add(list.get(i));
             }
+            temp.add(list.get(i));
         }
         if (!temp.isEmpty()) ans.add(temp);
         return ans;
